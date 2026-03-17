@@ -9,7 +9,8 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <a href="#" className="font-heading text-2xl md:text-3xl font-bold tracking-wider uppercase text-primary">
-          JUNK IT V5
+          <img src="/image_2026-03-17_16-21-04-removebg-preview.png" alt="JUNK IT logo" className="h-10 md:h-12 object-contain" />
+          <span className="sr-only">JUNK IT V5</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-3">
