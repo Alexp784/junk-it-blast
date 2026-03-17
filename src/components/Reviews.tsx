@@ -9,13 +9,13 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section className="py-20 bg-card/50">
+    <section className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl uppercase text-center text-primary neon-text-glow mb-14"
+          className="font-heading text-4xl md:text-5xl uppercase text-center text-foreground mb-14"
         >
           What Our Customers Say
         </motion.h2>
@@ -24,19 +24,19 @@ const Reviews = () => {
           {reviews.map((review, i) => (
             <motion.div
               key={review.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-background border border-primary/10 rounded-lg p-6"
+              transition={{ delay: i * 0.08 }}
+              className="bg-background border border-border rounded-lg p-6 shadow-sm"
             >
-              <div className="flex gap-1 mb-3">
+              <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: review.stars }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={j} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                 ))}
               </div>
               <p className="text-foreground italic mb-4">"{review.text}"</p>
-              <p className="font-heading uppercase text-sm text-primary">— {review.name}</p>
+              <p className="font-heading uppercase text-sm text-muted-foreground">— {review.name}</p>
             </motion.div>
           ))}
         </div>

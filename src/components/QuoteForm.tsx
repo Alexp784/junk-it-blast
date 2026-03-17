@@ -36,7 +36,6 @@ const QuoteForm = () => {
     files.forEach(f => formData.append("attachments", f));
 
     try {
-      // Formspree integration — replace YOUR_FORMSPREE_ID with actual ID
       await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
         method: "POST",
         body: formData,
@@ -44,7 +43,6 @@ const QuoteForm = () => {
       });
       setSubmitted(true);
     } catch {
-      // Still show success for demo; replace with error handling in production
       setSubmitted(true);
     } finally {
       setSubmitting(false);
@@ -53,18 +51,18 @@ const QuoteForm = () => {
 
   if (submitted) {
     return (
-      <section id="quote" className="py-20 bg-texture">
+      <section id="quote" className="py-20 bg-background">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="container mx-auto px-4 text-center"
         >
-          <div className="max-w-lg mx-auto bg-card border border-primary/20 rounded-lg p-12 neon-glow">
+          <div className="max-w-lg mx-auto bg-card border border-border rounded-lg p-12 shadow-lg">
             <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h2 className="font-heading text-3xl uppercase text-primary neon-text-glow mb-2">
-              Mission Received
+            <h2 className="font-heading text-3xl uppercase text-foreground mb-2">
+              Request Received!
             </h2>
-            <p className="text-foreground text-lg">We'll contact you shortly!</p>
+            <p className="text-muted-foreground text-lg">We'll contact you shortly.</p>
           </div>
         </motion.div>
       </section>
@@ -72,23 +70,23 @@ const QuoteForm = () => {
   }
 
   return (
-    <section id="quote" className="py-20 bg-texture">
+    <section id="quote" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl uppercase text-center text-primary neon-text-glow mb-14"
+          className="font-heading text-4xl md:text-5xl uppercase text-center text-foreground mb-14"
         >
           Get a Free Quote
         </motion.h2>
 
         <motion.form
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           onSubmit={handleSubmit}
-          className="max-w-2xl mx-auto bg-card border border-primary/10 rounded-lg p-8 space-y-6"
+          className="max-w-2xl mx-auto bg-card border border-border rounded-lg p-8 space-y-6 shadow-lg"
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
@@ -117,14 +115,13 @@ const QuoteForm = () => {
             <Textarea id="description" name="description" required placeholder="Tell us what you need removed..." className="bg-background border-border min-h-[120px]" />
           </div>
 
-          {/* File upload */}
           <div className="space-y-2">
             <Label className="text-foreground">Upload Images (optional, up to 5)</Label>
             <div
-              className="border-2 border-dashed border-primary/20 rounded-lg p-6 text-center cursor-pointer hover:border-primary/40 transition-colors"
+              className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-muted-foreground/50 transition-colors"
               onClick={() => fileInputRef.current?.click()}
             >
-              <Upload className="w-8 h-8 text-primary/60 mx-auto mb-2" />
+              <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
               <p className="text-muted-foreground text-sm">Click to upload images (max 8MB each)</p>
               <input
                 ref={fileInputRef}
@@ -149,7 +146,6 @@ const QuoteForm = () => {
             )}
           </div>
 
-          {/* Contact method */}
           <div className="space-y-2">
             <Label className="text-foreground">Preferred Contact Method</Label>
             <RadioGroup value={contactMethod} onValueChange={setContactMethod} className="flex gap-6">
@@ -166,7 +162,6 @@ const QuoteForm = () => {
             </RadioGroup>
           </div>
 
-          {/* Consent */}
           <div className="flex items-start gap-3">
             <Checkbox
               id="consent"
@@ -182,7 +177,7 @@ const QuoteForm = () => {
             type="submit"
             size="lg"
             disabled={!consent || submitting}
-            className="w-full neon-glow hover:scale-[1.02] transition-transform font-heading uppercase tracking-wide text-lg h-14"
+            className="w-full font-heading uppercase tracking-wide text-lg h-14 hover:brightness-90 transition-all"
           >
             {submitting ? "Sending..." : "Submit Quote Request"}
           </Button>

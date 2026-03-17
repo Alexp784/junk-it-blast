@@ -12,13 +12,13 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-20 bg-card/50">
+    <section className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl uppercase text-center text-primary neon-text-glow mb-14"
+          className="font-heading text-4xl md:text-5xl uppercase text-center text-foreground mb-14"
         >
           Our Services
         </motion.h2>
@@ -27,14 +27,11 @@ const Services = () => {
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="group bg-background border border-primary/10 rounded-lg p-8 text-center hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
-              style={{ transition: "box-shadow 0.3s, transform 0.3s, border-color 0.3s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px rgba(57,255,20,0.12)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
+              transition={{ delay: i * 0.06 }}
+              className="bg-background border border-border rounded-lg p-8 text-center hover:border-muted-foreground/30 hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <service.icon className="w-10 h-10 text-primary mx-auto mb-4" />
               <h3 className="font-heading text-xl uppercase text-foreground mb-2">{service.title}</h3>

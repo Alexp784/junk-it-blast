@@ -10,13 +10,13 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-texture">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl uppercase text-center text-primary neon-text-glow mb-14"
+          className="font-heading text-4xl md:text-5xl uppercase text-center text-foreground mb-14"
         >
           Why Choose Us
         </motion.h2>
@@ -25,13 +25,13 @@ const WhyChooseUs = () => {
           {reasons.map((r, i) => (
             <motion.div
               key={r.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               className="text-center"
             >
-              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
                 <r.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-heading text-lg uppercase text-foreground mb-2">{r.title}</h3>
